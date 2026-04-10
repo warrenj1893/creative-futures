@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,16 +27,19 @@ const Navbar = () => {
               <img src="https://images.squarespace-cdn.com/content/v1/6973ec3f715c52426367c228/a5e9b1f5-b51a-49aa-958b-202cfba2ef8c/Creative+Futures_CF+LOGO+Straight.png?format=1500w" alt="Creative Futures" />
             </a>
           </div>
-          <ul className="nav-links">
-            <li><Link to="/about">ABOUT</Link></li>
-            <li><Link to="/programs">PROGRAMS</Link></li>
-            <li><Link to="/events">EVENTS</Link></li>
-            <li><Link to="/intake">INTAKE</Link></li>
-            <li><Link to="/contact">CONTACT</Link></li>
+          <div className="mobile-menu-btn" onClick={toggleMenu}>
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </div>
+          <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+            <li><Link to="/about" onClick={closeMenu}>ABOUT</Link></li>
+            <li><Link to="/programs" onClick={closeMenu}>PROGRAMS</Link></li>
+            <li><Link to="/events" onClick={closeMenu}>EVENTS</Link></li>
+            <li><Link to="/intake" onClick={closeMenu}>INTAKE</Link></li>
+            <li><Link to="/contact" onClick={closeMenu}>CONTACT</Link></li>
           </ul>
         </div>
       </nav>
-      
+
       <div className="social-sidebar">
         <a href="https://facebook.com" target="_blank" rel="noreferrer">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>

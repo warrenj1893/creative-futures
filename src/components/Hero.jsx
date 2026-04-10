@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ReactPlayer from 'react-player';
 import './Hero.css';
 
 const Hero = () => {
@@ -24,16 +23,10 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          <ReactPlayer 
-            url="https://video.squarespace-cdn.com/content/v1/6973ec3f715c52426367c228/e535bded-46b7-4201-950a-5613b5fd5164/playlist.m3u8"
-            playing={true}
-            loop={true}
-            muted={true}
-            playsinline={true}
-            width="100%"
-            height="100%"
-            className="react-player"
-            style={{ position: 'absolute', top: 0, left: 0 }}
+          <img 
+            src="https://video.squarespace-cdn.com/content/v1/6973ec3f715c52426367c228/e535bded-46b7-4201-950a-5613b5fd5164/thumbnail"
+            alt="Creative Futures Hero"
+            className="hero-image"
           />
         </motion.div>
 

@@ -47,7 +47,7 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <img src="/images/milwaukee-secondary.png" alt="Milwaukee Creative Growth" className="mosaic-img-1" />
+            <img src="/images/creative-collaboration.png" alt="Creative Professionals Collaborating" className="mosaic-img-1" />
             <div className="mosaic-accent bg-gold"></div>
             <div className="mosaic-accent bg-red"></div>
           </motion.div>

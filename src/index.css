@@ -93,6 +93,12 @@ button.primary:hover {
   padding: 100px 0;
 }
 
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
 /* Color Blocks */
 .bg-navy {
   background-color: var(--cf-navy);

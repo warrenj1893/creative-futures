@@ -255,5 +255,22 @@
   }
   .narrative-split {
     flex-direction: column;
+    gap: 40px;
+  }
+  .mosaic {
+    min-height: 350px;
+    width: 100%;
+  }
+  .mosaic-img-1 {
+    height: 300px;
+    width: 90%;
+  }
+  .mosaic-accent.bg-gold {
+    height: 200px;
+    width: 70%;
+  }
+  .mosaic-accent.bg-red {
+    height: 120px;
+    width: 50%;
   }
 }
