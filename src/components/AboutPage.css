@@ -1,0 +1,259 @@
+.about-page {
+  width: 100%;
+}
+
+.bg-light-navy {
+  background-color: rgba(31,34,53, 0.4);
+}
+
+.about-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.about-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.about-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-hero-content {
+  text-align: center;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(31, 34, 53, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 60px;
+  border-radius: 16px;
+  border: 1px solid var(--cf-mustard);
+  max-width: 800px;
+}
+
+.about-hero-logo {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.about-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+  font-weight: 300;
+  font-family: var(--font-body);
+}
+
+.about-single-column {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-single-column h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-single-column p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.text-mustard { color: var(--cf-mustard); }
+.text-orange { color: var(--cf-orange); }
+.text-red { color: var(--cf-red); }
+.text-gold { color: var(--cf-gold); }
+
+.narrative-split {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+.narrative-text {
+  flex: 1;
+}
+
+.mosaic {
+  flex: 1;
+  position: relative;
+  min-height: 500px;
+}
+
+.mosaic-img-1 {
+  width: 80%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.mosaic-accent {
+  position: absolute;
+  border-radius: 12px;
+}
+
+.mosaic-accent.bg-gold {
+  width: 60%;
+  height: 300px;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--cf-gold);
+}
+
+.mosaic-accent.bg-red {
+  width: 40%;
+  height: 200px;
+  top: 30px;
+  right: -20px;
+  z-index: 0;
+  background-color: var(--cf-red);
+}
+
+/* How it works grid */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.how-card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-top: 4px solid var(--cf-orange);
+  border-radius: 8px;
+}
+
+.how-card h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.how-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.how-card ul {
+  color: rgba(255,255,255,0.85);
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.how-card ul li {
+  margin-bottom: 10px;
+}
+
+.intake-cta-block {
+  text-align: center;
+  background: var(--cf-navy);
+  padding: 50px;
+  border-radius: 12px;
+  border: 1px solid var(--cf-gold);
+}
+
+.intake-cta-block h3 {
+  color: var(--cf-gold);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.intake-cta-block p {
+  margin-bottom: 30px;
+}
+
+.intake-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* Leadership */
+.leadership-split {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.leader-profile {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.leader-img-wrapper {
+  flex: 0 0 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  aspect-ratio: 4/5;
+}
+
+.leader-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.leader-info {
+  flex: 1;
+}
+
+.leader-info h3 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.leader-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.leader-info p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .leader-profile {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .leader-img-wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+  .narrative-split {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,44 @@
+.more-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+.more-about-image {
+  width: 100%;
+  height: 100%;
+}
+
+.more-about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.more-about-content {
+  background-color: #C6434D !important;
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.more-about-content h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.more-about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+}
+
+@media (max-width: 900px) {
+  .more-about-grid {
+    grid-template-columns: 1fr;
+  }
+}

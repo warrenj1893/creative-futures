@@ -1,0 +1,139 @@
+.intake-funnel {
+  display: flex;
+  flex-direction: column;
+  background: rgba(31, 34, 53, 0.95);
+  padding: 50px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.form-section {
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 20px;
+}
+
+.form-section h3 {
+  color: var(--cf-gold);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  color: var(--cf-mustard);
+  font-family: var(--font-body);
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.intake-funnel input[type="text"],
+.intake-funnel input[type="email"],
+.intake-funnel input[type="url"],
+.intake-funnel input[type="date"],
+.intake-funnel select,
+.intake-funnel textarea {
+  padding: 14px 18px;
+  background: rgba(0,0,0,0.3);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.intake-funnel input:focus,
+.intake-funnel select:focus,
+.intake-funnel textarea:focus {
+  outline: none;
+  border-color: var(--cf-gold);
+  background: rgba(0,0,0,0.5);
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.checkbox-label input {
+  margin-top: 3px;
+  transform: scale(1.2);
+  accent-color: var(--cf-gold);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submit-btn {
+  background-color: var(--cf-gold) !important;
+  color: var(--cf-navy) !important;
+  border: none !important;
+  padding: 20px !important;
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  border-radius: 6px !important;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .intake-funnel {
+    padding: 30px 20px;
+  }
+}

@@ -1,0 +1,69 @@
+.services-section {
+  position: relative;
+  border-top: 4px solid var(--text-primary);
+  border-bottom: 4px solid var(--text-primary);
+}
+
+.intake-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intake-form p {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.contact-funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.contact-funnel input,
+.contact-funnel textarea {
+  padding: 15px 20px;
+  width: 100%;
+  border: 2px solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.contact-funnel input::placeholder,
+.contact-funnel textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-funnel textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: var(--cf-gold);
+  border-color: var(--cf-gold);
+  color: var(--cf-navy);
+  padding: 15px !important;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: transparent;
+  color: var(--cf-gold);
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
