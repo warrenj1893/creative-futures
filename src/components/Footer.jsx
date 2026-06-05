@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -8,13 +9,15 @@ const Footer = () => {
         <div className="footer-grid">
           
           <div className="footer-column">
-             <img className="sunburst-logo" src="https://images.squarespace-cdn.com/content/v1/6973ec3f715c52426367c228/a5e9b1f5-b51a-49aa-958b-202cfba2ef8c/Creative+Futures_CF+LOGO+Straight.png?format=1500w" alt="Creative Futures" />
+             <Link to="/">
+               <img className="sunburst-logo" src="https://images.squarespace-cdn.com/content/v1/6973ec3f715c52426367c228/a5e9b1f5-b51a-49aa-958b-202cfba2ef8c/Creative+Futures_CF+LOGO+Straight.png?format=1500w" alt="Creative Futures" />
+             </Link>
           </div>
 
           <div className="footer-column center-column">
             <p className="powered-by">POWERED BY</p>
             <a href="https://www.culturexdesign.com/" target="_blank" rel="noreferrer">
-              <img className="cxd-logo" src="https://static.wixstatic.com/media/bdb71e_0874bbbee59242beb5032d04d0f88bbb~mv2.png/v1/crop/x_78,y_0,w_1844,h_285/fill/w_850,h_132,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Culture%20x%20Design%20Logo-%20orange.png" alt="Culture X Design" />
+              <img className="cxd-logo" src="/images/cxd-logo-new.png" alt="Culture X Design" />
             </a>
             <p className="domain"><a href="https://www.culturexdesign.com/">www.culturexdesign.com</a></p>
           </div>

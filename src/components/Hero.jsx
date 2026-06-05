@@ -23,10 +23,24 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          <img 
-            src="https://video.squarespace-cdn.com/content/v1/6973ec3f715c52426367c228/e535bded-46b7-4201-950a-5613b5fd5164/thumbnail"
-            alt="Creative Futures Hero"
-            className="hero-image"
+          {/* Standard HTML5 video tag handles HLS natively in Safari, and gracefully displays the high-quality poster thumbnail in Chrome/Firefox where HLS is blocked or unsupported. */}
+          <video
+            src="/Creative-Futures-Ad-FINAL-WEB.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              border: 'none'
+            }}
           />
         </motion.div>
 

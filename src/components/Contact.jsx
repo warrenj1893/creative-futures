@@ -13,10 +13,14 @@ const Contact = () => {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/johnmccannwarren@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/maureen@culturexdesign.com", {
         method: "POST",
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ _subject: "New General Contact Message", ...formData })
+        body: JSON.stringify({ 
+          _subject: "New General Contact Message", 
+          "Submitted From Domain": "www.creativefuturesmke.com", 
+          ...formData 
+        })
       });
       if(response.ok) {
         setStatus('Message received. We will be in touch!');

@@ -59,50 +59,181 @@ const Intake = () => {
     
     // Generate PDF
     const doc = new jsPDF();
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(18);
-    doc.text("Creative Futures MKE - Full Client Intake", 20, 20);
     
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
-    let y = 30;
-    const addLine = (text) => {
-      const splitText = doc.splitTextToSize(text, 170);
-      doc.text(splitText, 20, y);
-      y += (splitText.length * 5) + 2;
-      if (y > 280) { doc.addPage(); y = 20; }
+    let y = 50;
+    
+    // Helper to handle dynamic page breaks
+    const checkPageBreak = (neededHeight) => {
+      if (y + neededHeight > 270) {
+        doc.addPage();
+        
+        // Draw minimal clean header on subsequent pages
+        doc.setFillColor(40, 42, 58); // Navy (#282a3a)
+        doc.rect(0, 0, 210, 15, 'F');
+        
+        doc.setFillColor(243, 189, 79); // Gold (#f3bd4f)
+        doc.rect(0, 15, 210, 1, 'F');
+        
+        // Render minimal footer on subsequent pages
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(8);
+        doc.setTextColor(150, 150, 150);
+        doc.text("CREATIVE FUTURES MKE - INTAKE RECORD", 20, 288);
+        doc.text(`Page ${doc.internal.getNumberOfPages()}`, 180, 288);
+        
+        y = 28;
+      }
     };
 
-    addLine(`Date: ${new Date().toLocaleDateString()}`);
-    addLine(`Consent: ${formData.consent ? 'Yes' : 'No'}`);
-    addLine(`Legal Name: ${formData.legalName}`);
-    addLine(`Entity Type: ${formData.entityType} | Year: ${formData.yearEstablished} | Stage: ${formData.stage}`);
-    addLine(`CEO: ${formData.ceoFirstName} ${formData.ceoLastName} (${formData.ceoEmail})`);
-    addLine(`Contact: ${formData.contactFirstName} ${formData.contactLastName} (${formData.contactEmail})`);
-    addLine(`Address: ${formData.address1} ${formData.address2}, ${formData.city}, ${formData.state} ${formData.zip}`);
-    addLine(`Website: ${formData.website}`);
-    addLine(`Identity: ${formData.identity.join(', ')}`);
-    addLine(`Disciplines: ${formData.disciplines.join(', ')}`);
-    addLine(`Assistance Needed: ${formData.assistance.join(', ')}`);
-    addLine(`Challenge: ${formData.challenge}`);
-    addLine(`Prior Engagement: ${formData.engagement}`);
-    addLine(`Referral: ${formData.referral.join(', ')}`);
-    addLine(`Start Date: ${formData.startDate}`);
+    // Draw main premium header block on the first page
+    doc.setFillColor(40, 42, 58); // Navy (#282a3a)
+    doc.rect(0, 0, 210, 40, 'F');
     
-    doc.save(`Intake_${formData.legalName || formData.ceoLastName}.pdf`);
+    // Accent Gold Line underneath the main banner
+    doc.setFillColor(243, 189, 79); // Gold (#f3bd4f)
+    doc.rect(0, 40, 210, 1.5, 'F');
+
+    // Title text inside banner
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
+    doc.text("CREATIVE FUTURES", 20, 18);
+    
+    // Subtitle
+    doc.setTextColor(243, 189, 79); // Gold
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    doc.text("OFFICIAL CLIENT PROGRAM INTAKE RECORD", 20, 26);
+    
+    // Date & Meta
+    doc.setTextColor(200, 200, 200);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text(`SUBMITTED: ${new Date().toLocaleDateString()}`, 145, 26);
+
+    // Primary Page Footer
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text("POWERED BY CULTURE X DESIGN  |  WWW.CREATIVEFUTURESMKE.COM", 20, 288);
+    doc.text(`Page ${doc.internal.getNumberOfPages()}`, 180, 288);
+
+    // Helper to draw clean section block dividers
+    const drawSectionHeader = (title) => {
+      checkPageBreak(22);
+      
+      // Draw subtle background block for section headers
+      doc.setFillColor(240, 163, 76); // Orange (#f0a34c)
+      doc.rect(20, y, 170, 7.5, 'F');
+      
+      doc.setTextColor(40, 42, 58); // Navy text
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9.5);
+      doc.text(title.toUpperCase(), 25, y + 5);
+      
+      y += 13;
+    };
+
+    // Helper to draw beautifully aligned key-value rows
+    const addField = (label, value) => {
+      const valString = String(value || 'N/A');
+      const labelWidth = 55;
+      const valueWidth = 115;
+      
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      const splitValue = doc.splitTextToSize(valString, valueWidth);
+      const rowHeight = (splitValue.length * 4.5) + 2.5;
+      
+      checkPageBreak(rowHeight);
+      
+      // Label in Navy bold
+      doc.setTextColor(40, 42, 58);
+      doc.setFont("helvetica", "bold");
+      doc.text(label, 20, y);
+      
+      // Value in regular dark grey
+      doc.setTextColor(60, 60, 60);
+      doc.setFont("helvetica", "normal");
+      doc.text(splitValue, 20 + labelWidth, y);
+      
+      y += rowHeight;
+    };
+
+    // --- RENDER SECTION: BUSINESS DETAILS ---
+    drawSectionHeader("Business Profile");
+    addField("Legal Entity Name", formData.legalName);
+    addField("Legal Entity Type", formData.entityType);
+    addField("Year Established", formData.yearEstablished);
+    addField("Business Stage", formData.stage);
+    addField("Website / Domain", formData.website);
+    y += 4;
+
+    // --- RENDER SECTION: LEADERSHIP & CONTACT ---
+    drawSectionHeader("Leadership & Primary Contact");
+    addField("CEO / Lead Creative", `${formData.ceoFirstName} ${formData.ceoLastName}`);
+    addField("CEO Email Address", formData.ceoEmail);
+    if (formData.contactFirstName || formData.contactEmail) {
+      addField("Primary Contact Name", `${formData.contactFirstName} ${formData.contactLastName}`);
+      addField("Primary Contact Email", formData.contactEmail);
+    }
+    addField("Street Address", `${formData.address1} ${formData.address2 || ''}`);
+    addField("City, State, ZIP", `${formData.city}, ${formData.state} ${formData.zip}`);
+    y += 4;
+
+    // --- RENDER SECTION: IDENTITY & DISCIPLINE ---
+    drawSectionHeader("Demographics & Practice");
+    addField("Identities Owned", formData.identity.join(', ') || 'None selected');
+    addField("Creative Disciplines", formData.disciplines.join(', ') || 'None selected');
+    y += 4;
+
+    // --- RENDER SECTION: STRATEGIC INTAKE FUNNEL ---
+    drawSectionHeader("Assistance & Engagement");
+    addField("Assistance Seeking", formData.assistance.join(', ') || 'None selected');
+    addField("Key Growth Challenge", formData.challenge);
+    addField("Prior Engagement", formData.engagement);
+    addField("Referral Channel", formData.referral.join(', ') || 'None selected');
+    addField("Est. Start Date", formData.startDate);
+
+    // Save PDF on the user's computer
+    doc.save(`Intake_${formData.legalName.replace(/[^a-z0-9]/gi, '_') || formData.ceoLastName}.pdf`);
+
+    // Generate binary PDF Blob to attach to the email submission
+    const pdfBlob = doc.output('blob');
+
+    // Create a FormData object to enable multipart/form-data upload (supporting file attachments!)
+    const uploadData = new FormData();
+    uploadData.append("attachment", pdfBlob, `Intake_${formData.legalName.replace(/[^a-z0-9]/gi, '_') || formData.ceoLastName}.pdf`);
+    uploadData.append("_subject", `New Branded Client Intake: ${formData.legalName}`);
+    uploadData.append("Submitted From Domain", "www.creativefuturesmke.com");
+    
+    // Map human-readable fields to the email body
+    uploadData.append("Legal Name of Business", formData.legalName);
+    uploadData.append("Entity Type", formData.entityType);
+    uploadData.append("Year Established", formData.yearEstablished);
+    uploadData.append("Business Stage", formData.stage);
+    uploadData.append("Website / Domain", formData.website);
+    uploadData.append("CEO Name", `${formData.ceoFirstName} ${formData.ceoLastName}`);
+    uploadData.append("CEO Email Address", formData.ceoEmail);
+    if (formData.contactFirstName || formData.contactEmail) {
+      uploadData.append("Primary Contact", `${formData.contactFirstName} ${formData.contactLastName} (${formData.contactEmail})`);
+    }
+    uploadData.append("Business Address", `${formData.address1} ${formData.address2 || ''}, ${formData.city}, ${formData.state} ${formData.zip}`);
+    uploadData.append("Demographic Ownership", formData.identity.join(', ') || 'None selected');
+    uploadData.append("Creative Disciplines", formData.disciplines.join(', ') || 'None selected');
+    uploadData.append("Technical Assistance Needed", formData.assistance.join(', ') || 'None selected');
+    uploadData.append("Key Business Challenge", formData.challenge);
+    uploadData.append("Prior Program Engagement", formData.engagement);
+    uploadData.append("Referral Channel", formData.referral.join(', ') || 'None selected');
+    uploadData.append("Estimated Start Date", formData.startDate);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/johnmccannwarren@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/geraud@culturexdesign.com", {
         method: "POST",
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-            _subject: `New Complete Intake: ${formData.legalName}`,
-            ...formData,
-            identity: formData.identity.join(', '),
-            disciplines: formData.disciplines.join(', '),
-            assistance: formData.assistance.join(', '),
-            referral: formData.referral.join(', ')
-        })
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: uploadData // Browser automatically sets Content-Type to multipart/form-data with correct boundary!
       });
       if(response.ok) {
         setStatus('Success! Application received.');
@@ -185,7 +316,7 @@ const Intake = () => {
             </div>
             <div className="form-field">
               <label>Business or Creative Website</label>
-              <input type="url" name="website" value={formData.website} onChange={handleChange} />
+              <input type="text" name="website" value={formData.website} onChange={handleChange} placeholder="e.g. www.yourbusiness.com" />
             </div>
           </div>
 
