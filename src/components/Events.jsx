@@ -43,6 +43,16 @@ const Events = () => {
       location: "Fruition MKE (Concordia 27 - 819 N. 27th St.)",
       desc: "Unlock the professional design suite. Go beyond templates with hands-on training in Canva Pro's Brand Kits, custom video animation, background removals, smart resizing, batch file generation, and dynamic publishing workflows.",
       rsvp: "https://www.eventbrite.com/e/canva-pro-a-creatives-guide-to-going-further-tickets-1990731306928?aff=oddtdtcreator"
+    },
+    {
+      src: "/images/sponsor-ready.png",
+      title: "Creative Clinic: Sponsor Ready",
+      subtitle: "Building Presentations That Attract Funding Partners",
+      date: "Tue, Aug 11, 2026",
+      time: "6:30 PM Doors | 7:00 PM Program",
+      location: "Fruition MKE (819 N. 27th St.)",
+      desc: "Learn how to craft presentations that get sponsors excited to fund your big ideas. Led by Geraud Blanks, this hands-on Creative Clinic is a live working session where you'll get real-time edits and practical guidance on pitch decks, one-sheets, and proposals. Participants are encouraged to bring an existing project or presentation to refine with clarity and confidence.",
+      rsvp: "https://www.eventbrite.com/e/sponsor-ready-building-presentations-that-attract-funding-tickets-1990928961117"
     }
   ];
 

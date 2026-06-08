@@ -110,7 +110,6 @@
 }
 
 .card-header-group {
-  min-height: 250px; /* Enforces equal vertical height for the header group (badge + title + subtitle) */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
