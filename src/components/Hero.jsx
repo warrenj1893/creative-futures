@@ -1,10 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from './SEO';
 import './Hero.css';
 
 const Hero = () => {
   return (
     <section className="hero bg-orange">
+      <SEO 
+        title="Home" 
+        description="Culture x Design's Creative Futures program empowers creative entrepreneurs to build sustainable, scalable businesses."
+      />
       <div className="wave-overlay"></div>
       
       <div className="hero-content container">

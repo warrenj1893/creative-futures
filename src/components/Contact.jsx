@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEO from './SEO';
 import Services from './Services';
 import './Contact.css';
 
@@ -30,6 +31,7 @@ const Contact = () => {
   };
   return (
     <main className="contact-page bg-navy">
+      <SEO title="Contact Us" description="Get in touch with Culture x Design to learn more about the Creative Futures program." />
       <section className="contact-hero section-padding" style={{ paddingTop: '150px' }}>
         <div className="container contact-split">
           

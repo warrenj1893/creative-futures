@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from './SEO';
 import './Events.css';
 
 const Events = () => {
@@ -58,6 +59,7 @@ const Events = () => {
 
   return (
     <section className="events-section bg-navy section-padding-y">
+      <SEO title="Events & Workshops" description="Discover upcoming Creative Clinics, workshops, and civic studios." />
       <div className="wave-overlay"></div>
       
       <div className="events-container container">

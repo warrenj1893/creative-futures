@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from './SEO';
 import Services from './Services';
 import './Programs.css';
 
@@ -33,6 +34,7 @@ const Programs = () => {
 
   return (
     <main className="programs-page">
+      <SEO title="Our Programs" description="Creative Futures offers hands-on programs designed to meet creatives at different stages of development." />
       {/* AI Hero Splash */}
       <section className="programs-hero">
         <div className="programs-hero-bg">

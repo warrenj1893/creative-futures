@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { jsPDF } from 'jspdf';
+import SEO from './SEO';
 import './Intake.css';
 
 const Intake = () => {
@@ -247,6 +248,7 @@ const Intake = () => {
 
   return (
     <main className="intake-page bg-navy section-padding-y" style={{ paddingTop: '150px' }}>
+      <SEO title="Client Intake" description="Apply for technical assistance and join the Creative Futures network by completing our intake form." />
       <div className="container" style={{ maxWidth: '1100px' }}>
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}

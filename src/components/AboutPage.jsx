@@ -1,12 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from './SEO';
 import Services from './Services';
 import './AboutPage.css';
 
 const AboutPage = () => {
   return (
     <main className="about-page bg-navy">
+      <SEO 
+        title="About Us" 
+        description="Creative Futures is a year-round creative economy initiative designed to help artists, designers, and cultural entrepreneurs turn their ideas into sustainable ventures."
+      />
       {/* Hero Section */}
       <section className="about-hero">
         <div className="about-hero-bg">
