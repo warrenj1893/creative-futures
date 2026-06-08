@@ -18,6 +18,7 @@ const FeaturedVideo = () => {
             controls
             playsInline
             preload="metadata"
+            poster="/Creative-Futures-poster.jpg"
             className="featured-video-player"
           >
             <source src="/Creative-Futures-2.mp4" type="video/mp4" />

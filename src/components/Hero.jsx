@@ -31,7 +31,6 @@ const Hero = () => {
           {/* Standard HTML5 video tag handles HLS natively in Safari, and gracefully displays the high-quality poster thumbnail in Chrome/Firefox where HLS is blocked or unsupported. */}
           <video
             src="/Creative-Futures-Ad-FINAL-WEB.mp4"
-            autoPlay
             loop
             muted
             playsInline
